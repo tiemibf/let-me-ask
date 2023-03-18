@@ -3,8 +3,12 @@ import logoImg  from "../../assets/images/logo.svg"
 import googleIconImg from "../../assets/images/google-icon.svg"
 import { HomeStyle } from "./Home.styles"
 import { Button } from "../../components/Button/Button"
+import { useNavigate } from "react-router-dom"
+
 
 const Home = () => {
+    const navigate = useNavigate();
+
     return (
         <HomeStyle>
             <aside>
@@ -15,7 +19,7 @@ const Home = () => {
             <main>
                 <div className="main-content">
                     <img src={logoImg} alt="Letmeask logo" />
-                    <button className="create-room">
+                    <button  onClick={() => navigate("/rooms/new")} className="create-room">
                         <img src={googleIconImg} alt="Google logo" />
                         Crie sua sala com o Google
                     </button>
