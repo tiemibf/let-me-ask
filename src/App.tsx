@@ -1,10 +1,12 @@
-import { Button } from "./components/Button";
+import { Home } from "./pages/Home/Home";
+import { globalStyles } from "./styles/globalStyles";
 
 import "./services/firebase"
 
 function App() {
+  globalStyles();
   return (
-    <Button text="Botão 1" />
+    <Home />
   );
 }
 
