@@ -5,7 +5,7 @@ import googleIconImg from "../../assets/images/google-icon.svg"
 import { Button } from "../../components/Button/Button"
 import { HomeStyle } from "../Home/Home.styles"
 
-export const NewRoom = () => {
+const NewRoom = () => {
     return (
         <HomeStyle>
             <aside>
@@ -27,3 +27,5 @@ export const NewRoom = () => {
         </HomeStyle>
     )
 }
+
+export default NewRoom;
