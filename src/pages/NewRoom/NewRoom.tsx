@@ -1,10 +1,11 @@
 import illustrationImg from "../../assets/images/Illustration.svg"
 import logoImg  from "../../assets/images/logo.svg"
 import googleIconImg from "../../assets/images/google-icon.svg"
-import { HomeStyle } from "./Home.styles"
-import { Button } from "../../components/Button/Button"
 
-export const Home = () => {
+import { Button } from "../../components/Button/Button"
+import { HomeStyle } from "../Home/Home.styles"
+
+export const NewRoom = () => {
     return (
         <HomeStyle>
             <aside>
@@ -15,15 +16,12 @@ export const Home = () => {
             <main>
                 <div className="main-content">
                     <img src={logoImg} alt="Letmeask logo" />
-                    <button className="create-room">
-                        <img src={googleIconImg} alt="Google logo" />
-                        Crie sua sala com o Google
-                    </button>
-                    <p className="separator">ou entre em uma sala</p>
+                    <h2>Crie uma nova sala</h2>
                     <form>
-                        <input type="text" placeholder="Digite o código da sala"/>
-                        <Button type="submit">Entrar na Sala</Button>
+                        <input type="text" placeholder="Nome da sala"/>
+                        <Button type="submit">Criar sala</Button>
                     </form>
+                    <p>Quer entrar em uma sala existente? Clique <a href="#">aqui</a></p>
                 </div>
             </main>
         </HomeStyle>
