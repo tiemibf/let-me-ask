@@ -1,10 +1,13 @@
-import illustrationImg from "../../assets/images/Illustration.svg"
-import logoImg  from "../../assets/images/logo.svg"
-import { Button } from "../../components/Button/Button"
-import { HomeStyle } from "../Home/Home.styles"
-import { Link } from "react-router-dom"
+import illustrationImg from "../../assets/images/Illustration.svg";
+import logoImg  from "../../assets/images/logo.svg";
+import { Button } from "../../components/Button/Button";
+import { HomeStyle } from "../Home/Home.styles";
+import { Link } from "react-router-dom";
+import { useAuth } from "hooks/useAuth";
 
 const NewRoom = () => {
+    const { user } = useAuth();
+
     return (
         <HomeStyle>
             <aside>

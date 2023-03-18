@@ -1,25 +1,23 @@
-import illustrationImg from "../../assets/images/Illustration.svg"
-import logoImg  from "../../assets/images/logo.svg"
-import googleIconImg from "../../assets/images/google-icon.svg"
+import illustrationImg from "assets/images/Illustration.svg"
+import logoImg  from "assets/images/logo.svg"
+import googleIconImg from "assets/images/google-icon.svg"
 import { HomeStyle } from "./Home.styles"
-import { Button } from "../../components/Button/Button"
+import { Button } from "components/Button/Button"
 import { useNavigate } from "react-router-dom"
-import { firebase, auth, database } from "../../services/firebase"
-import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { useAuth } from "hooks/useAuth"
+
 
 const Home = () => {
     const navigate = useNavigate();
-
-    const handleCreateRoom = () => {
-        const provider = new GoogleAuthProvider();
-        signInWithPopup(auth, provider)
-        .then((result) => {
-            console.log(result)
-            navigate("/rooms/new")
-        })
-
-
+    const { user, signInWithGoogle} = useAuth();
+    
+    const handleCreateRoom = async() => {
+        if(!user){
+            await signInWithGoogle()
+        }
+        navigate("/rooms/new")
     }
+    
     return (
         <HomeStyle>
             <aside>
