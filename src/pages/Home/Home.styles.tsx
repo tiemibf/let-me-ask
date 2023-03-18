@@ -46,6 +46,11 @@ export const HomeStyle = styled("div",{
         img: {
             alignSelf: "center"
         },
+        h2:{
+            fontSize:"24px",
+            margin:"64px 0 24px",
+            fontFamily:"Poppins, sans-serif"
+        },
         form: {
             input: {
                 height:"50px",
@@ -59,6 +64,14 @@ export const HomeStyle = styled("div",{
             },
             "button, input": {
                 width:"100%"
+            }
+        },
+        p:{
+            fontSize:"14px",
+            color:"#737380",
+            marginTop:"16px",
+            a:{
+                color:"#e559f9"
             }
         },
         ".create-room":{
