@@ -4,11 +4,22 @@ import googleIconImg from "../../assets/images/google-icon.svg"
 import { HomeStyle } from "./Home.styles"
 import { Button } from "../../components/Button/Button"
 import { useNavigate } from "react-router-dom"
-
+import { firebase, auth, database } from "../../services/firebase"
+import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 
 const Home = () => {
     const navigate = useNavigate();
 
+    const handleCreateRoom = () => {
+        const provider = new GoogleAuthProvider();
+        signInWithPopup(auth, provider)
+        .then((result) => {
+            console.log(result)
+            navigate("/rooms/new")
+        })
+
+
+    }
     return (
         <HomeStyle>
             <aside>
@@ -19,7 +30,7 @@ const Home = () => {
             <main>
                 <div className="main-content">
                     <img src={logoImg} alt="Letmeask logo" />
-                    <button  onClick={() => navigate("/rooms/new")} className="create-room">
+                    <button  onClick={handleCreateRoom} className="create-room">
                         <img src={googleIconImg} alt="Google logo" />
                         Crie sua sala com o Google
                     </button>
