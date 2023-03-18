@@ -1,12 +1,15 @@
-import { Home } from "./pages/Home/Home";
 import { globalStyles } from "./styles/globalStyles";
+import Router from "./Router";
+import { BrowserRouter } from "react-router-dom"
 
 import "./services/firebase"
 
 function App() {
   globalStyles();
   return (
-    <Home />
+    <BrowserRouter>
+      <Router />
+    </BrowserRouter>
   );
 }
 

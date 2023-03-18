@@ -4,7 +4,7 @@ import googleIconImg from "../../assets/images/google-icon.svg"
 import { HomeStyle } from "./Home.styles"
 import { Button } from "../../components/Button/Button"
 
-export const Home = () => {
+const Home = () => {
     return (
         <HomeStyle>
             <aside>
@@ -29,3 +29,5 @@ export const Home = () => {
         </HomeStyle>
     )
 }
+
+export default Home;
