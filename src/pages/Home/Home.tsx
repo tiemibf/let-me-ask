@@ -1,14 +1,23 @@
-import illustrationImg from "../../assets/images/Illustration.svg"
-import logoImg  from "../../assets/images/logo.svg"
-import googleIconImg from "../../assets/images/google-icon.svg"
+import illustrationImg from "assets/images/Illustration.svg"
+import logoImg  from "assets/images/logo.svg"
+import googleIconImg from "assets/images/google-icon.svg"
 import { HomeStyle } from "./Home.styles"
-import { Button } from "../../components/Button/Button"
+import { Button } from "components/Button/Button"
 import { useNavigate } from "react-router-dom"
+import { useAuth } from "hooks/useAuth"
 
 
 const Home = () => {
     const navigate = useNavigate();
-
+    const { user, signInWithGoogle} = useAuth();
+    
+    const handleCreateRoom = async() => {
+        if(!user){
+            await signInWithGoogle()
+        }
+        navigate("/rooms/new")
+    }
+    
     return (
         <HomeStyle>
             <aside>
@@ -19,7 +28,7 @@ const Home = () => {
             <main>
                 <div className="main-content">
                     <img src={logoImg} alt="Letmeask logo" />
-                    <button  onClick={() => navigate("/rooms/new")} className="create-room">
+                    <button  onClick={handleCreateRoom} className="create-room">
                         <img src={googleIconImg} alt="Google logo" />
                         Crie sua sala com o Google
                     </button>
